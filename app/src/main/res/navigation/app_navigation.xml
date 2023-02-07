@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/mainDashboard">
+
+    <fragment
+        android:id="@+id/mainDashboard"
+        android:name="com.example.aankh.ui.fragments.application.MainDashboard"
+        android:label="fragment_main_dashboard"
+        tools:layout="@layout/fragment_main_dashboard">
+        <action
+            android:id="@+id/action_mainDashboard_to_trackingFragment"
+            app:destination="@id/trackingFragment" />
+        <action
+            android:id="@+id/action_mainDashboard_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_mainDashboard_to_firFragment"
+            app:destination="@id/firFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/firFragment"
+        android:name="com.example.aankh.ui.fragments.application.FirFragment"
+        android:label="fragment_fir"
+        tools:layout="@layout/fragment_fir" />
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.example.aankh.ui.fragments.application.NotificationFragment"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_notification" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.aankh.ui.fragments.application.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/trackingFragment"
+        android:name="com.example.aankh.ui.fragments.application.TrackingFragment"
+        android:label="fragment_tracking"
+        tools:layout="@layout/fragment_tracking" />
+    <fragment
+        android:id="@+id/logOutFragment"
+        android:name="com.example.aankh.ui.fragments.application.LogOutFragment"
+        android:label="fragment_log_out"
+        tools:layout="@layout/fragment_log_out" />
+</navigation>

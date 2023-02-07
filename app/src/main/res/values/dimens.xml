@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="input_margin_left">8dp</dimen>
+    <dimen name="input_width">175dp</dimen>
+    <dimen name="input_height">45dp</dimen>
+    <dimen name="button_height">40dp</dimen>
+
+    <dimen name="input_box_width">280dp</dimen>
+    <dimen name="input_box_heignt">40dp</dimen>
+    <dimen name="input_box_corner_radius">20dp</dimen>
+    <dimen name="input_box_elevation">10dp</dimen>
+    <dimen name="input_box_icon_width">20dp</dimen>
+    <dimen name="input_box_icon_height">25dp</dimen>
+    <dimen name="input_box_icon_right_margin">16dp</dimen>
+    <dimen name="input_box_edittext_left_margin">16dp</dimen>
+    <dimen name="input_box_text_size">16sp</dimen>
+    <dimen name="input_box_edittext_width">150dp</dimen>
+    <dimen name="input_box_top_margin">32dp</dimen>
+    <dimen name="log_in_button_width">180dp</dimen>
+    <dimen name="log_in_button_padding_left">42dp</dimen>
+    <dimen name="log_in_button_padding_top">8dp</dimen>
+    <dimen name="log_in_button_padding_right">42dp</dimen>
+    <dimen name="log_in_button_padding_bottom">8dp</dimen>
+</resources>

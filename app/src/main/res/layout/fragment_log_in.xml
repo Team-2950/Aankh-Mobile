@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".ui.fragments.logInAndSignUp.LogInFragment">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/white_background_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"></ImageView>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="60dp"
+        android:orientation="vertical"
+        android:padding="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:id="@+id/login_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/background_yellow_circle"></ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/poppins"
+                android:paddingLeft="3dp"
+                android:text="Login"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="120dp"
+                tools:layout_editor_absoluteY="112dp" />
+        </RelativeLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/idInputEditTextLogInFragment"
+            android:layout_width="@dimen/input_box_width"
+            android:layout_height="@dimen/input_box_heignt"
+            android:layout_marginTop="@dimen/input_box_top_margin"
+            android:elevation="@dimen/input_box_elevation"
+            app:cardCornerRadius="@dimen/input_box_corner_radius"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_text">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:layout_width="@dimen/input_box_edittext_width"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/input_box_edittext_left_margin"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/poppins"
+                    android:hint="ID Number"
+                    android:inputType="number"
+                    android:id="@+id/idNumberINputLogInFragment"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/input_box_text_size"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.5" />
+
+                <ImageView
+                    android:layout_width="@dimen/input_box_icon_width"
+                    android:layout_height="@dimen/input_box_icon_height"
+                    android:layout_marginRight="@dimen/input_box_icon_right_margin"
+                    android:src="@drawable/login_id_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.5" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="@dimen/input_box_width"
+            android:layout_height="@dimen/input_box_heignt"
+            android:layout_marginTop="@dimen/input_box_top_margin"
+
+            android:elevation="@dimen/input_box_elevation"
+            app:cardCornerRadius="@dimen/input_box_corner_radius"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/idInputEditTextLogInFragment">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:layout_width="@dimen/input_box_edittext_width"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/input_box_edittext_left_margin"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/poppins"
+                    android:hint="Password"
+                    android:id="@+id/passwordInputLogInFragment"
+                    android:inputType="textPassword"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/input_box_text_size"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.5" />
+
+                <ImageView
+                    android:layout_width="@dimen/input_box_icon_width"
+                    android:layout_height="@dimen/input_box_icon_height"
+                    android:layout_marginRight="@dimen/input_box_icon_right_margin"
+                    android:src="@drawable/password_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.5" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+
+            android:id="@+id/logInButtonFragment"
+            android:layout_width="@dimen/log_in_button_width"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            app:cardBackgroundColor="@color/button_background_color"
+            app:cardCornerRadius="@dimen/input_box_corner_radius"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:paddingLeft="@dimen/log_in_button_padding_left"
+                android:paddingTop="@dimen/log_in_button_padding_top"
+
+                android:paddingRight="@dimen/log_in_button_padding_right"
+                android:paddingBottom="@dimen/log_in_button_padding_bottom"
+                android:text="Log in"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/input_box_text_size"
+                android:textStyle="bold" />
+
+        </androidx.cardview.widget.CardView>
+
+        <ProgressBar
+            android:id="@+id/progressBarLogInFragment"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/logInButtonFragment"
+            app:layout_constraintEnd_toEndOf="@+id/logInButtonFragment"
+            app:layout_constraintStart_toStartOf="@+id/logInButtonFragment"
+            app:layout_constraintTop_toTopOf="@+id/logInButtonFragment" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

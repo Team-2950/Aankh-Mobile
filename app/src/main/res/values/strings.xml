@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Aankh</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_map">MapActivity</string>
+
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!--    Home screen-->
+    <string name="startTracking">This option allows you to start tracking yourself, where you go it will be recorded and he data will be sent to officials.</string>
+    <string name="reportFIR">If you find or encounter any bad practice while patrolling you can note a FIRST INFORMATION REPORT on this application.</string>
+    <string name="viewProfile">Can analyse and view your performance which will be recorded while patrolling.</string>
+
+    <string name="maps_api_key">BuildConfig.MAPS_API_KEY</string>
+
+</resources>
