@@ -8,10 +8,4 @@ data class CheckPointsDataModel(
     @SerializedName("description") val description: String
 )
 
-data class dataModel(
 
-//
-    @SerializedName("latitude") var latitude: Double? = null,
-    @SerializedName("longitude") var longitude: Double? = null,
-    @SerializedName("description") var description: String? = null
-)

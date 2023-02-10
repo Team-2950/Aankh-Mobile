@@ -61,12 +61,12 @@ class TrackingFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationB
 
     private val viewModel: TrackingViewModel by activityViewModels()
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentTrackingBinding.inflate(inflater, container, false)
 //
-//        trackingViewModel = ViewModelProvider
 
 
 //        TODO make a get request for today's check points
@@ -111,7 +111,6 @@ class TrackingFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationB
 
 
     private fun onStartButtonClicked() {
-
         if (hasBackgroundPermission(requireContext()) && hasLocationPermission(requireContext())) {
             onStartCommands()
         } else if (hasBackgroundPermission(requireContext())) {
@@ -127,7 +126,6 @@ class TrackingFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationB
     private fun onStartCommands() {
         binding.startButtonMapsActivity.hide()
         binding.stopButtonMapsActivity.show()
-
         sendActionCommandtoService(ACTION_SERVICE_START)
     }
 
@@ -161,6 +159,7 @@ class TrackingFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationB
     @SuppressLint("MissingPermission")
     override fun onMapReady(googleMap: GoogleMap) {
 //        TODO make a get request
+
         val preferences =
             activity?.getSharedPreferences("PREFERENCE", AppCompatActivity.MODE_PRIVATE)
         val id = preferences?.getString("id", "")
@@ -239,12 +238,25 @@ class TrackingFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationB
     }
 
     private fun observeTrackerService() {
-        Tracker.locationLiveData.observe(viewLifecycleOwner) {
+        Tracker.locationLiveData.observe(viewLifecycleOwner) { it ->
             if (it != null) {
                 locationList = it
                 if (locationList.size > 1) {
-//                   TODO send the last location post request
-                    viewModel.postCurrentLocation(locationList.last())
+                    val preferences =
+                        activity?.getSharedPreferences("PREFERENCE", AppCompatActivity.MODE_PRIVATE)
+                    val id = preferences?.getString("id", "")
+                    id?.let {
+                        if (id.equals("")) {
+                            Toast.makeText(
+                                requireContext(),
+                                "ID is empty log out and then log in again!!",
+                                Toast.LENGTH_LONG
+                            ).show()
+                        } else {
+                            viewModel.postCurrentLocation(it, locationList.last())
+                        }
+                    }
+                    Log.d("tracking fragment", "error")
                 }
                 drawPolyline()
                 followPolyline()

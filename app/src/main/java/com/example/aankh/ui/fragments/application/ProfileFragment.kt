@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
@@ -24,37 +25,45 @@ class ProfileFragment() : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
 
-        if (viewModel.isFetched()) {
-            val it = viewModel.getUserProfile().value
-            if (it != null) {
-                updateUi(it)
-            }
+        Log.d("view model fragment", viewModel.toString())
 
-        } else {
-            viewModel.fetchUserProfile()
-            viewModel.getUserProfile().observe(viewLifecycleOwner, Observer {
-                updateUi(it)
-            })
-
-        }
 
         val preferences =
             activity?.getSharedPreferences("PREFERENCE", AppCompatActivity.MODE_PRIVATE)
         val id = preferences?.getString("id", "")
-        Log.d("user id", id.toString())
+
+        id?.let {
+            if (id == "") {
+                Toast.makeText(
+                    requireContext(),
+                    "ID is empty log out and then log in again!!",
+                    Toast.LENGTH_LONG
+                ).show()
+            } else {
+                if (viewModel.isFetched()) {
+                    updateUi(viewModel.getUserProfileData().value!!, id)
+                } else {
+                    viewModel.fetchUserProfile(id)
+                    viewModel.getUserProfileData().observe(viewLifecycleOwner, Observer { data ->
+                        updateUi(data, it)
+                    })
+                }
+            }
+        }
+
         return binding.root
     }
 
-    private fun updateUi(it: UserProfileData) {
+    private fun updateUi(it: UserProfileData, id: String) {
+
         binding.userName.text = it.name
-        binding.userId.text = it.id
+        binding.userId.text = id
         binding.userDesignation.text = it.designation
-        binding.userDob.text = it.dateOfBirth
-        binding.userBloodGroup.text = it.bloodGroup
-        binding.userAreaName.text = it.areaName
+        binding.userDob.text = it.dateofbirth
+        binding.userBloodGroup.text = it.bloodgroup
+        binding.userAreaName.text = it.area
     }
 
 }
