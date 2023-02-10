@@ -6,21 +6,16 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.aankh.R
+import com.example.aankh.dataModels.CheckPointsDataModel
 
 class CheckPointsAdapter : RecyclerView.Adapter<CheckPointsAdapter.ViewHolder>() {
 
-    private val arrayList = listOf<String>(
-        "temp1",
-        "temp2",
-        "temp1",
-        "temp2",
-        "temp1",
-        "temp2",
-        "temp1",
-        "temp2",
-        "temp1",
-        "temp2"
-    )
+    private var checkPoints = ArrayList<CheckPointsDataModel>()
+
+    fun updateCheckPoints(checkPoints: ArrayList<CheckPointsDataModel>) {
+        this.checkPoints = checkPoints
+        notifyDataSetChanged()
+    }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val textView = itemView.findViewById<TextView>(R.id.checkPointDescription)
@@ -34,11 +29,16 @@ class CheckPointsAdapter : RecyclerView.Adapter<CheckPointsAdapter.ViewHolder>()
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.textView.text = arrayList[position]
+
+        if (checkPoints.size != 0) {
+            holder.textView.text = checkPoints[position].description
+        } else {
+            holder.textView.text = "No check points!!"
+        }
     }
 
     override fun getItemCount(): Int {
-        return arrayList.size
+        return checkPoints.size
     }
 
 }

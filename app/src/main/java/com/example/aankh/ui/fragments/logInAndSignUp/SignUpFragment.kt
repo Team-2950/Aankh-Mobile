@@ -14,7 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.aankh.DashBoard
 import com.example.aankh.dataModels.UserModel
 import com.example.aankh.databinding.FragmentSignUpBinding
-import com.example.aankh.viewModels.authViewModel.CreateUserViewModel
+import com.example.aankh.viewModels.authViewModels.CreateUserViewModel
 
 
 class SignUpFragment : Fragment() {

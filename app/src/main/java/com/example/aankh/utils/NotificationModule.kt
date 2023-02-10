@@ -9,6 +9,7 @@ import com.example.aankh.DashBoard
 import com.example.aankh.MainActivity
 import com.example.aankh.R
 import com.example.aankh.utils.Constants.NOTIFICATION_CHANNEL_ID
+import com.example.aankh.utils.Constants.NOTIFICATION_CHANNEL_NAME
 import com.example.aankh.utils.Constants.PENDING_INTENT_REQUEST_CODE
 import dagger.Module
 import dagger.Provides
@@ -33,12 +34,14 @@ object NotificationModule {
     @ServiceScoped
     @Provides
     fun providePendingIntent(@ApplicationContext context: Context): PendingIntent? {
+        val intent = Intent(
+            context, DashBoard::class.java
+        )
+        intent.putExtra("comeFrom", NOTIFICATION_CHANNEL_NAME)
         return PendingIntent.getActivity(
             context,
             PENDING_INTENT_REQUEST_CODE,
-            Intent(
-                context, DashBoard::class.java
-            ),
+            intent,
             PendingIntent.FLAG_UPDATE_CURRENT
         )
     }

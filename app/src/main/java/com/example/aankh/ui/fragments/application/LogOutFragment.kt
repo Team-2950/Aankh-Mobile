@@ -9,9 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.aankh.MainActivity
-import com.example.aankh.R
+
 import com.example.aankh.databinding.FragmentLogOutBinding
-import com.example.aankh.databinding.FragmentMainDashboardBinding
+
 
 
 class LogOutFragment : Fragment() {
@@ -44,6 +44,5 @@ class LogOutFragment : Fragment() {
 
         return binding.root
     }
-
 
 }

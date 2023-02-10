@@ -8,7 +8,6 @@ import android.content.Intent
 import android.location.Location
 import android.os.Build
 import android.os.Looper
-import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.lifecycle.LifecycleService
 import androidx.lifecycle.MutableLiveData
@@ -23,6 +22,9 @@ import com.example.aankh.utils.MapUtil
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.model.LatLng
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
@@ -112,13 +114,16 @@ class Tracker : LifecycleService() {
 
 
     private fun stopForegoundService() {
-        fusedLocationProviderClient.removeLocationUpdates(locationCallback)
-        (getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager).cancel(
-            NOTIFICATION_ID
-        )
-        stopForeground(true)
-        stopSelf()
-        stopTime.postValue(System.currentTimeMillis())
+
+            fusedLocationProviderClient.removeLocationUpdates(locationCallback)
+            (getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager).cancel(
+                NOTIFICATION_ID
+            )
+            stopForeground(true)
+            stopSelf()
+            stopTime.postValue(System.currentTimeMillis())
+
+
     }
 
     @SuppressLint("MissingPermission")

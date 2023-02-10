@@ -8,7 +8,6 @@ import android.view.WindowManager
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import com.example.aankh.databinding.ActivitySplashScreenBinding
-import com.example.aankh.ui.activity.MapActivity
 
 class SplashScreen : AppCompatActivity() {
     private lateinit var binding: ActivitySplashScreenBinding

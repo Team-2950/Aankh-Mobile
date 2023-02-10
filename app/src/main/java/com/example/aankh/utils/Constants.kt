@@ -10,6 +10,7 @@ object Constants {
     const val NOTIFICATION_CHANNEL_NAME = "tracker_notification"
     const val NOTIFICATION_ID = 3
     const val PENDING_INTENT_REQUEST_CODE = 100
-    const val LOCATION_UPDATE_INTERVAL = 4000L
-    const val LOCATION_FASTEST_UPDATE_INTERVAL = 2000L
+    const val LOCATION_UPDATE_INTERVAL = 8000L
+    const val LOCATION_FASTEST_UPDATE_INTERVAL = 5000L
+    const val BASE_URL = "http://192.168.43.148:3000/"
 }

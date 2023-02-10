@@ -11,6 +11,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
 import com.example.aankh.databinding.ActivityDashBoardBinding
 import com.example.aankh.service.Tracker
+import com.example.aankh.utils.Constants.NOTIFICATION_CHANNEL_NAME
 import com.example.aankh.utils.Permissions.hasLocationPermission
 import com.example.aankh.utils.Permissions.requestLocationPermission
 import pub.devrel.easypermissions.AppSettingsDialog
@@ -40,12 +41,10 @@ class DashBoard : AppCompatActivity() {
             ), binding.drawerLayout
         )
 
+        val comeFrom = intent.getStringExtra("comeFrom")
+        if (comeFrom.equals(NOTIFICATION_CHANNEL_NAME))
+            navController.navigate(R.id.action_mainDashboard_to_trackingFragment)
 
-//        Tracker.started.observe(this, Observer {
-//            if (it) {
-//                navController.navigate(R.id.action_mainDashboard_to_trackingFragment)
-//            }
-//        })
 
 
         binding.navView.setupWithNavController(navController)
@@ -65,4 +64,10 @@ class DashBoard : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
+    override fun onBackPressed() {
+        if (binding.drawerLayout.isDrawerOpen(Gravity.LEFT))
+            binding.drawerLayout.close()
+        else
+            super.onBackPressed()
+    }
 }
