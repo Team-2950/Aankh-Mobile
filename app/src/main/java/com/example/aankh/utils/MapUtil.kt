@@ -9,7 +9,7 @@ import java.text.DecimalFormat
 
 object MapUtil {
     fun setCameraPosition(location: LatLng): CameraPosition {
-        return CameraPosition.Builder().target(location).zoom(18f).build()
+        return CameraPosition.Builder().target(location).zoom(12f).build()
     }
 
 

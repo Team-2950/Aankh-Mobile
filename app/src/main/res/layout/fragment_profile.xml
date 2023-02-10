@@ -70,6 +70,7 @@
                 app:cardCornerRadius="10dp">
 
                 <TextView
+                    android:id="@+id/user_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="12dp"
@@ -106,6 +107,7 @@
                 app:cardCornerRadius="10dp">
 
                 <TextView
+                    android:id="@+id/user_id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="12dp"
@@ -141,6 +143,7 @@
                 app:cardCornerRadius="10dp">
 
                 <TextView
+                    android:id="@+id/user_designation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="12dp"
@@ -176,6 +179,7 @@
                 app:cardCornerRadius="10dp">
 
                 <TextView
+                    android:id="@+id/user_dob"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="12dp"
@@ -211,6 +215,7 @@
                 app:cardCornerRadius="10dp">
 
                 <TextView
+                    android:id="@+id/user_blood_group"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="12dp"
@@ -246,6 +251,7 @@
                 app:cardCornerRadius="10dp">
 
                 <TextView
+                    android:id="@+id/user_area_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="12dp"
