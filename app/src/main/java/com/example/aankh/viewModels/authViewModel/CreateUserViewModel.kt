@@ -1,4 +1,4 @@
-package com.example.aankh.viewModels
+package com.example.aankh.viewModels.authViewModel
 
 import android.util.MutableBoolean
 import androidx.lifecycle.MutableLiveData
