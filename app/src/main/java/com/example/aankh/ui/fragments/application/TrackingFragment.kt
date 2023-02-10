@@ -67,6 +67,7 @@ class TrackingFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationB
 //        TODO make a get request for today's check points
 
 
+
 ////        TODO get location permissions before moving to fragment
 //        fusedLocationProviderClient =
 //            LocationServices.getFusedLocationProviderClient(requireActivity())

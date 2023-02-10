@@ -44,5 +44,9 @@
         android:id="@+id/logOutFragment"
         android:name="com.example.aankh.ui.fragments.application.LogOutFragment"
         android:label="fragment_log_out"
-        tools:layout="@layout/fragment_log_out" />
+        tools:layout="@layout/fragment_log_out" >
+        <action
+            android:id="@+id/action_logOutFragment_to_mainDashboard"
+            app:destination="@id/mainDashboard" />
+    </fragment>
 </navigation>

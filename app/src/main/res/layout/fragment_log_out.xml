@@ -58,6 +58,7 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/yes_log_out"
                     android:layout_marginRight="8dp"
                     android:backgroundTint="#23FD7A"
                     android:elevation="10dp"
@@ -78,6 +79,7 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/no_log_out"
                     android:layout_marginLeft="8dp"
                     android:backgroundTint="#BB2B2B"
                     android:elevation="10dp"

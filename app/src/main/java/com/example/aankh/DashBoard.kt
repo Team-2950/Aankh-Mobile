@@ -35,7 +35,8 @@ class DashBoard : AppCompatActivity() {
                 R.id.trackingFragment,
                 R.id.firFragment,
                 R.id.profileFragment,
-                R.id.logOutFragment, R.id.notificationFragment
+                R.id.logOutFragment,
+                R.id.notificationFragment
             ), binding.drawerLayout
         )
 
