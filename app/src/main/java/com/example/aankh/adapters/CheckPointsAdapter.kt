@@ -13,6 +13,7 @@ class CheckPointsAdapter : RecyclerView.Adapter<CheckPointsAdapter.ViewHolder>()
     private var checkPoints = ArrayList<CheckPointsDataModel>()
 
     fun updateCheckPoints(checkPoints: ArrayList<CheckPointsDataModel>) {
+
         this.checkPoints = checkPoints
         notifyDataSetChanged()
     }

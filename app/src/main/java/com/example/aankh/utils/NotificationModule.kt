@@ -8,6 +8,8 @@ import androidx.core.app.NotificationCompat
 import com.example.aankh.DashBoard
 import com.example.aankh.MainActivity
 import com.example.aankh.R
+import com.example.aankh.utils.Constants.NEW_CHECK_POINT_NOTIFICATION_CHANNEL_ID
+import com.example.aankh.utils.Constants.NEW_CHECK_POINT_NOTIFICATION_NAME
 import com.example.aankh.utils.Constants.NOTIFICATION_CHANNEL_ID
 import com.example.aankh.utils.Constants.NOTIFICATION_CHANNEL_NAME
 import com.example.aankh.utils.Constants.PENDING_INTENT_REQUEST_CODE
@@ -29,6 +31,29 @@ object NotificationModule {
         return NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID).setAutoCancel(false)
             .setOngoing(true).setSmallIcon(R.drawable.green_check_mark)
             .setContentIntent(providePendingIntent(context))
+    }
+
+//    @ServiceScoped
+//    @Provides
+//    fun provideNewCheckPointNotification(@ApplicationContext context: Context): NotificationCompat.Builder {
+//        return NotificationCompat.Builder(context, NEW_CHECK_POINT_NOTIFICATION_CHANNEL_ID)
+//            .setAutoCancel(true)
+//            .setOngoing(false).setSmallIcon(R.drawable.logo)
+//            .setContentIntent(provideNewCheckPointPendingIntent(context))
+//    }
+
+
+    fun provideNewCheckPointPendingIntent(@ApplicationContext context: Context): PendingIntent? {
+        val intent = Intent(
+            context, DashBoard::class.java
+        )
+        intent.putExtra("comeFrom", NEW_CHECK_POINT_NOTIFICATION_NAME)
+        return PendingIntent.getActivity(
+            context,
+            PENDING_INTENT_REQUEST_CODE,
+            intent,
+            PendingIntent.FLAG_UPDATE_CURRENT
+        )
     }
 
     @ServiceScoped

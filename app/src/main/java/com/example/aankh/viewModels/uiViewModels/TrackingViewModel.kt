@@ -28,5 +28,26 @@ class TrackingViewModel : ViewModel() {
     }
 
 
+    fun getEmergencyCheckPoint(userId: String) {
+        viewModelScope.launch { repository.getEmergencyCheckPoint(userId) }
+    }
+
+
+    fun getEmergencyCheckPointData() = repository.getEmergencyCheckPointData()
     fun getCheckPointsData() = repository.getCheckPointsData()
+
+
+    fun postEndRoute(userId: String, locations: List<LatLng>) {
+        viewModelScope.launch {
+
+            repository.postEndRoute(userId, locations)
+        }
+    }
+
+
+    fun postStartAndStopTime(userid: String, startTime: Long, stopTime: Long) {
+        viewModelScope.launch {
+            repository.postStartAndStopTime(userid, startTime, stopTime)
+        }
+    }
 }

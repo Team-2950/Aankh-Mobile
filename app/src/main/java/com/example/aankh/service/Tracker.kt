@@ -8,9 +8,14 @@ import android.content.Intent
 import android.location.Location
 import android.os.Build
 import android.os.Looper
+import android.util.Log
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.LifecycleService
 import androidx.lifecycle.MutableLiveData
+import com.example.aankh.repository.remoteDataSource.TrackingRepository
 import com.example.aankh.utils.Constants.ACTION_SERVICE_START
 import com.example.aankh.utils.Constants.ACTION_SERVICE_STOP
 import com.example.aankh.utils.Constants.LOCATION_FASTEST_UPDATE_INTERVAL
@@ -19,6 +24,7 @@ import com.example.aankh.utils.Constants.NOTIFICATION_CHANNEL_ID
 import com.example.aankh.utils.Constants.NOTIFICATION_CHANNEL_NAME
 import com.example.aankh.utils.Constants.NOTIFICATION_ID
 import com.example.aankh.utils.MapUtil
+import com.example.aankh.viewModels.uiViewModels.TrackingViewModel
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.model.LatLng
 import dagger.hilt.android.AndroidEntryPoint
@@ -30,13 +36,16 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class Tracker : LifecycleService() {
-    @Inject
-    lateinit var notificationManager: NotificationManager
+
+    private lateinit var notificationManager: NotificationManager
 
     @Inject
     lateinit var notification: NotificationCompat.Builder
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 
+    private lateinit var trackerRepository: TrackingRepository
+//    private val preferences = getSharedPreferences("PREFERENCE", AppCompatActivity.MODE_PRIVATE)
+//    private val id = preferences?.getString("id", "")
 
     companion object {
         var started = MutableLiveData<Boolean>()
@@ -60,6 +69,19 @@ class Tracker : LifecycleService() {
             add(newLatLng)
             locationLiveData.postValue(this)
         }
+
+        postCurrentLocation(newLatLng)
+        checkEmergencyCheckPoints()
+
+    }
+
+    private fun checkEmergencyCheckPoints() {
+
+    }
+
+    private fun postCurrentLocation(position: LatLng) {
+        Log.d("service data", "id.toString()")
+        trackerRepository.updateCurrentLocation("12345", position)
     }
 
 
@@ -69,7 +91,7 @@ class Tracker : LifecycleService() {
             result?.locations?.let { locations ->
                 for (location in locations) {
                     updateLocationList(location)
-                    updateNotificationPeriodically()
+//                    updateNotificationPeriodically()
                 }
             }
         }
@@ -79,9 +101,10 @@ class Tracker : LifecycleService() {
     //    the system invokes this method to perform one-time setup
 //        before onStartCommand() or onBind(), basically used to create the service
     override fun onCreate() {
+        super.onCreate()
+        notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         setInitialValues()
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
-        super.onCreate()
     }
 
 
@@ -90,6 +113,7 @@ class Tracker : LifecycleService() {
         intent?.let {
             when (it.action) {
                 ACTION_SERVICE_START -> {
+                    trackerRepository = TrackingRepository()
                     startForegroundService()
                     startLocationUpdates()
                     started.postValue(true)
@@ -114,15 +138,14 @@ class Tracker : LifecycleService() {
 
 
     private fun stopForegoundService() {
+        fusedLocationProviderClient.removeLocationUpdates(locationCallback)
 
-            fusedLocationProviderClient.removeLocationUpdates(locationCallback)
-            (getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager).cancel(
-                NOTIFICATION_ID
-            )
-            stopForeground(true)
-            stopSelf()
-            stopTime.postValue(System.currentTimeMillis())
-
+        (getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager).cancel(
+            NOTIFICATION_ID
+        )
+        stopForeground(true)
+//        stopSelf()
+        stopTime.postValue(System.currentTimeMillis())
 
     }
 

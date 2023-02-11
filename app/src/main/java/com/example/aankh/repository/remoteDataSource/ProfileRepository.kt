@@ -12,7 +12,7 @@ class ProfileRepository {
     private var fetched: Boolean = false
 
     fun getUserProfile(userId: String) {
-        val data = ResponseObject.trackingData.getUserProfile("12345")
+        val data = ResponseObject.trackingData.getUserProfile(userId)
         try {
             data.enqueue(object : Callback<UserProfileData> {
                 override fun onResponse(
