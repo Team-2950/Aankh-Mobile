@@ -7,7 +7,9 @@ import androidx.fragment.app.Fragment
 import com.example.aankh.databinding.ActivityMainBinding
 import com.example.aankh.ui.fragments.logInAndSignUp.LogInFragment
 import com.example.aankh.ui.fragments.logInAndSignUp.SignUpFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding

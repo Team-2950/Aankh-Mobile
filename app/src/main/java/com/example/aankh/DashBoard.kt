@@ -14,10 +14,11 @@ import com.example.aankh.service.Tracker
 import com.example.aankh.utils.Constants.NOTIFICATION_CHANNEL_NAME
 import com.example.aankh.utils.Permissions.hasLocationPermission
 import com.example.aankh.utils.Permissions.requestLocationPermission
+import dagger.hilt.android.AndroidEntryPoint
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
 
-
+@AndroidEntryPoint
 class DashBoard : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
 

@@ -1,9 +1,6 @@
 package com.example.aankh.repository.remoteDataSource
 
-import com.example.aankh.dataModels.CheckPointsDataModel
-import com.example.aankh.dataModels.CurrentLocationDataModel
-import com.example.aankh.dataModels.CurrentLocationUpdateResponse
-import com.example.aankh.dataModels.UserProfileData
+import com.example.aankh.dataModels.*
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -20,9 +17,26 @@ interface TrackingData {
     fun updateCurrentPosition(
         @Path("id") userId: String,
         @Body currentPosition: CurrentLocationDataModel
-    ): Call<CurrentLocationUpdateResponse>
+    ): Call<UpdateResponse>
 
 
     @GET("patrolingofficers/{id}/profile")
     fun getUserProfile(@Path("id") userId: String): Call<UserProfileData>
+
+    @GET("fetchemergency/{id}")
+    fun getEmergencyCheckPoint(@Path("id") userId: String): Call<ArrayList<CheckPointsDataModel>>
+
+
+    @POST("patrolingofficers/{id}/endtime")
+    fun updateStopTime(
+        @Path("id") userId: String,
+        @Body stopTime: UserStopTime
+    ): Call<UpdateResponse>
+
+    @POST("patrolingofficers/{id}/starttime")
+    fun updateStartTime(
+        @Path("id") userId: String,
+        @Body startTime: UserStartTime
+    ): Call<UpdateResponse>
+
 }
