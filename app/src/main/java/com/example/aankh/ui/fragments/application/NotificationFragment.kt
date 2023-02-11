@@ -1,6 +1,11 @@
 package com.example.aankh.ui.fragments.application
 
+import android.app.Activity
+import android.content.ContentValues
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -22,8 +27,11 @@ class NotificationFragment : Fragment(), EasyPermissions.PermissionCallbacks {
 
     private var _binding: FragmentNotificationBinding? = null
     private val binding get() = _binding!!
-
+    private val IMAGE_CAPTURE_CODE = 1001
+    private var imageUri: Uri? = null
     private val profileViewModel: ProfileViewModel by activityViewModels()
+
+    private val verificationViewModel :
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,10 +45,18 @@ class NotificationFragment : Fragment(), EasyPermissions.PermissionCallbacks {
         val baseImage = profileViewModel.getUserProfileData().value?.photo
 
 
+
+
+
+
+
+
+
         binding.camera.setOnClickListener {
 //            TODO as for permission
             if (hasCameraPermission(requireContext())) {
 //                start intent
+
             } else
                 requestCameraPermission(this)
 
@@ -54,6 +70,7 @@ class NotificationFragment : Fragment(), EasyPermissions.PermissionCallbacks {
 
     override fun onPermissionsGranted(requestCode: Int, perms: MutableList<String>) {
 //TODO start the intent
+        openCameraInterface()
 
     }
 
@@ -62,7 +79,7 @@ class NotificationFragment : Fragment(), EasyPermissions.PermissionCallbacks {
             AppSettingsDialog.Builder(requireActivity()).build().show()
         } else {
             if (requestCode == Constants.CAMERA_PERMISSION_REQUEST_CODE) {
-                Permissions.requestCameraPermission(this)
+                requestCameraPermission(this)
             }
         }
     }

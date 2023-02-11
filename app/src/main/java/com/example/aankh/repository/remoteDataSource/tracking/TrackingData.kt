@@ -45,4 +45,11 @@ interface TrackingData {
         @Path("id") userId: String,
         @Body report: ReportComplaintDataModel
     ): Call<UpdateResponse>
+
+
+    @POST("patrolingofficers/{id}/verification")
+    fun updateVerificationData(
+        @Path("id") userId: String,
+        @Body verificationData: ImageMatchingResultDataModel
+    ): Call<UpdateResponse>
 }

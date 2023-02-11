@@ -53,19 +53,22 @@ object Permissions {
     }
 
     fun hasCameraPermission(context: Context): Boolean {
-        return EasyPermissions.hasPermissions(
-            context,
-            Manifest.permission.CAMERA
-        )
+        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.M)
+            return EasyPermissions.hasPermissions(
+                context,
+                Manifest.permission.CAMERA
+            )
+        return true
     }
 
     fun requestCameraPermission(fragment: Fragment) {
-        EasyPermissions.requestPermissions(
-            fragment,
-            "Require this permission to mark attendance",
-            CAMERA_PERMISSION_REQUEST_CODE,
-            Manifest.permission.CAMERA
-        )
+        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.M)
+            EasyPermissions.requestPermissions(
+                fragment,
+                "Require this permission to mark attendance",
+                CAMERA_PERMISSION_REQUEST_CODE,
+                Manifest.permission.CAMERA
+            )
     }
 
 }
