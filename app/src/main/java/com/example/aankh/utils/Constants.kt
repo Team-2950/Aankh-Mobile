@@ -3,6 +3,7 @@ package com.example.aankh.utils
 object Constants {
     const val PERMISSION_LOCATION_REQUEST_CODE = 1
     const val BACKGROUND_PERMISSION_REQUEST_CODE = 2
+    const val CAMERA_PERMISSION_REQUEST_CODE = 3
     const val ACTION_SERVICE_START = "ACTION_SERVICE_START"
     const val ACTION_SERVICE_STOP = "ACTION_SERVICE_STOP"
     const val ACTION_NAVIGATE_TO_MAPS_FRAGMENT = "ACTION_NAVIGATE_TO_MAPS_FRAGMENT"
@@ -19,4 +20,6 @@ object Constants {
     const val LOCATION_UPDATE_INTERVAL = 2000L
     const val LOCATION_FASTEST_UPDATE_INTERVAL = 1000L
     const val BASE_URL = "http://172.16.200.150:3000/"
+
+    const val MODLE_API_BASE_URL = "http://tirth5828.pythonanywhere.com/"
 }

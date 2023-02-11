@@ -24,7 +24,11 @@
         android:id="@+id/firFragment"
         android:name="com.example.aankh.ui.fragments.application.FirFragment"
         android:label="fragment_fir"
-        tools:layout="@layout/fragment_fir" />
+        tools:layout="@layout/fragment_fir" >
+        <action
+            android:id="@+id/action_firFragment_to_mainDashboard"
+            app:destination="@id/mainDashboard" />
+    </fragment>
     <fragment
         android:id="@+id/notificationFragment"
         android:name="com.example.aankh.ui.fragments.application.NotificationFragment"

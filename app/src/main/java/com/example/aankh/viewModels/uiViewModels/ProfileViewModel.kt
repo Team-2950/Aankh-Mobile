@@ -2,7 +2,7 @@ package com.example.aankh.viewModels.uiViewModels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.aankh.repository.remoteDataSource.ProfileRepository
+import com.example.aankh.repository.remoteDataSource.tracking.ProfileRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
