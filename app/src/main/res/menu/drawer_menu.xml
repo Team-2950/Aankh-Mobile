@@ -15,7 +15,7 @@
         <item
             android:id="@+id/firFragment"
             android:icon="@drawable/fir_icon"
-            android:title="Report FIR" />
+            android:title="Report Complaint" />
         <item
             android:id="@+id/profileFragment"
             android:icon="@drawable/profile_icon"
