@@ -6,6 +6,7 @@ import android.os.Build
 import androidx.fragment.app.Fragment
 import com.example.aankh.ui.fragments.application.TrackingFragment
 import com.example.aankh.utils.Constants.BACKGROUND_PERMISSION_REQUEST_CODE
+import com.example.aankh.utils.Constants.CAMERA_PERMISSION_REQUEST_CODE
 import com.example.aankh.utils.Constants.PERMISSION_LOCATION_REQUEST_CODE
 import pub.devrel.easypermissions.EasyPermissions
 
@@ -50,4 +51,24 @@ object Permissions {
         }
 
     }
+
+    fun hasCameraPermission(context: Context): Boolean {
+        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.M)
+            return EasyPermissions.hasPermissions(
+                context,
+                Manifest.permission.CAMERA
+            )
+        return true
+    }
+
+    fun requestCameraPermission(fragment: Fragment) {
+        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.M)
+            EasyPermissions.requestPermissions(
+                fragment,
+                "Require this permission to mark attendance",
+                CAMERA_PERMISSION_REQUEST_CODE,
+                Manifest.permission.CAMERA
+            )
+    }
+
 }

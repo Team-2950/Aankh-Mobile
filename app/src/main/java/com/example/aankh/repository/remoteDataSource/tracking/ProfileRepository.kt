@@ -1,4 +1,4 @@
-package com.example.aankh.repository.remoteDataSource
+package com.example.aankh.repository.remoteDataSource.tracking
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
@@ -12,7 +12,8 @@ class ProfileRepository {
     private var fetched: Boolean = false
 
     fun getUserProfile(userId: String) {
-        val data = ResponseObject.trackingData.getUserProfile(userId)
+        val data = ResponseObject.trackingData.getUserProfile(userId
+        )
         try {
             data.enqueue(object : Callback<UserProfileData> {
                 override fun onResponse(

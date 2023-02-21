@@ -1,4 +1,4 @@
-package com.example.aankh.repository.remoteDataSource
+package com.example.aankh.repository.remoteDataSource.tracking
 
 import com.example.aankh.dataModels.*
 import retrofit2.Call
@@ -39,4 +39,17 @@ interface TrackingData {
         @Body startTime: UserStartTime
     ): Call<UpdateResponse>
 
+
+    @POST("patrolingofficers/{id}/report")
+    fun postComplaintReport(
+        @Path("id") userId: String,
+        @Body report: ReportComplaintDataModel
+    ): Call<UpdateResponse>
+
+
+    @POST("patrolingofficers/{id}/verification")
+    fun updateVerificationData(
+        @Path("id") userId: String,
+        @Body verificationData: ImageMatchingResultDataModel
+    ): Call<UpdateResponse>
 }

@@ -8,5 +8,6 @@ data class UserProfileData(
     @SerializedName("bloodgroup") var bloodgroup: String,
     @SerializedName("dateofbirth") var dateofbirth: String,
     @SerializedName("designation") var designation: String,
-    @SerializedName("name") var name: String
+    @SerializedName("name") var name: String,
+    @SerializedName("photo") var photo: String
 )

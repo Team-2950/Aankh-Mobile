@@ -22,6 +22,7 @@ import androidx.core.app.NotificationCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.aankh.R
 import com.example.aankh.adapters.CheckPointsAdapter

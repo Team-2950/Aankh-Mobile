@@ -9,13 +9,10 @@ import android.location.Location
 import android.os.Build
 import android.os.Looper
 import android.util.Log
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.LifecycleService
 import androidx.lifecycle.MutableLiveData
-import com.example.aankh.repository.remoteDataSource.TrackingRepository
+import com.example.aankh.repository.remoteDataSource.tracking.TrackingRepository
 import com.example.aankh.utils.Constants.ACTION_SERVICE_START
 import com.example.aankh.utils.Constants.ACTION_SERVICE_STOP
 import com.example.aankh.utils.Constants.LOCATION_FASTEST_UPDATE_INTERVAL
@@ -24,13 +21,9 @@ import com.example.aankh.utils.Constants.NOTIFICATION_CHANNEL_ID
 import com.example.aankh.utils.Constants.NOTIFICATION_CHANNEL_NAME
 import com.example.aankh.utils.Constants.NOTIFICATION_ID
 import com.example.aankh.utils.MapUtil
-import com.example.aankh.viewModels.uiViewModels.TrackingViewModel
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.model.LatLng
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
@@ -44,9 +37,6 @@ class Tracker : LifecycleService() {
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 
     private lateinit var trackerRepository: TrackingRepository
-//    private val preferences = getSharedPreferences("PREFERENCE", AppCompatActivity.MODE_PRIVATE)
-//    private val id = preferences?.getString("id", "")
-
     companion object {
         var started = MutableLiveData<Boolean>()
         val locationLiveData = MutableLiveData<MutableList<LatLng>>()
